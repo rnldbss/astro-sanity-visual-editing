@@ -1,24 +1,24 @@
 import type { SchemaTypeDefinition } from "sanity";
 
 // Document Types - Main content schemas
-import { homeType } from "./schemaTypes/documents/home/home";
 import { testimonialType } from "./schemaTypes/documents/references/testimonial";
+import { pageAboutType } from "./schemaTypes/documents/about/pageAbout";
+import { pageContactType } from "./schemaTypes/documents/contact/pageAbout";
+import { filesType } from "./schemaTypes/documents/download-files/files";
 
 // Plugin Types - Reusable field configurations
-import { experienceType } from "./schemaTypes/plugins/experience";
-import { headingWithTextType } from "./schemaTypes/plugins/headingWithText";
-import { heroSecondaryType } from "./schemaTypes/plugins/heroSecondary";
-import { imageWithLinkType } from "./schemaTypes/plugins/imageWithLink";
-import { metadataType } from "./schemaTypes/plugins/siteMetadata";
-import { textAndListDetailsType } from "./schemaTypes/plugins/textAndListDetails";
-import { twoStringsType } from "./schemaTypes/plugins/twoStrings";
-import { twoStringsWithUrlType } from "./schemaTypes/plugins/twoStringsWithHref";
+import { mediaType } from "./schemaTypes/plugins/media/media";
+import { stringRichtextButtonType } from "./schemaTypes/plugins/string-rich-text-button/stringRichtextButton";
+import { stringRichtextButtonsType } from "./schemaTypes/plugins/string-rich-text-buttons/stringRichtextButtons";
+import { stringRichtextType } from "./schemaTypes/plugins/string-richtext/stringRichtext";
+import { stringRichtextButtonMediaType } from "./schemaTypes/plugins/string-richtext-button-media/stringRichtextButtonMedia";
+import { stringRichtextButtonImagesType } from "./schemaTypes/plugins/string-richtext-images/stringRichtextButtonImages";
 
 // Utility Types - Base schemas and shared configurations
-import { blockContentType } from "./schemaTypes/utils/blockContent";
 import { customImageType } from "./schemaTypes/utils/customImage";
 import { videoType } from "./schemaTypes/utils/video";
-
+import { linkSelectorType } from "./schemaTypes/utils/link-selector/linkSelector";
+import { richTextType } from "./schemaTypes/utils/richText";
 /**
  * Schema Configuration for Sanity Studio
  *
@@ -32,22 +32,23 @@ import { videoType } from "./schemaTypes/utils/video";
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // Document Types
-    homeType,
+    pageAboutType,
     testimonialType,
+    pageContactType,
+    filesType,
 
     // Plugin Types
-    experienceType,
-    headingWithTextType,
-    heroSecondaryType,
-    imageWithLinkType,
-    metadataType,
-    textAndListDetailsType,
-    twoStringsType,
-    twoStringsWithUrlType,
+    stringRichtextButtonType,
+    stringRichtextButtonsType,
+    stringRichtextType,
+    stringRichtextButtonMediaType,
+    stringRichtextButtonImagesType,
+    mediaType,
 
     // Utility Types
-    blockContentType,
     customImageType,
     videoType,
+    linkSelectorType,
+    richTextType,
   ],
 };

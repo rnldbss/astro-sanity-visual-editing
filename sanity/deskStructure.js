@@ -6,9 +6,9 @@ export const structure = (S, context) =>
     .title("Content")
     .items([
       // Single document for Home page
-      S.listItem()
-        .title("Home")
-        .child(S.document().schemaType("home").documentId("home")),
+      // S.listItem()
+      //   .title("Home")
+      //   .child(S.document().schemaType("home").documentId("home")),
 
       // // Projects section with nested structure
       // S.listItem()
@@ -47,7 +47,6 @@ export const structure = (S, context) =>
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
-            "home",
             // "project",
             // "contact",
             // "links",

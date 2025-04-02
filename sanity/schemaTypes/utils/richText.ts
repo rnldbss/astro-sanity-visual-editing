@@ -1,8 +1,8 @@
 import { defineArrayMember, defineType } from "sanity";
 
-export const blockContentType = defineType({
-  title: "Block Content",
-  name: "blockContent",
+export const richTextType = defineType({
+  title: "Content Block",
+  name: "richText",
   type: "array",
   of: [
     defineArrayMember({

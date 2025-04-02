@@ -3,6 +3,8 @@ import { structureTool } from "sanity/structure";
 import { presentationTool } from "sanity/presentation";
 import { schema } from "./sanity/index";
 import { resolve } from "./lib/sanity/resolve-production-url";
+import { visionTool } from "@sanity/vision";
+
 export default defineConfig({
   name: "astro-sanity-visual-editing",
   title: "Astro + Sanity with visual editing",
@@ -14,6 +16,7 @@ export default defineConfig({
       resolve: resolve,
       previewUrl: location.origin,
     }),
+    visionTool(),
   ],
   schema,
 });

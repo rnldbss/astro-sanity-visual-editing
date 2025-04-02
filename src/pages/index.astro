@@ -9,10 +9,8 @@ const {data: home} = await loadQuery<Array<{title: string}>>({
 })
 
 
-console.log(home.aboutHeading)
 ---
 
 <Layout>
-	<h1>{home.aboutHeading}</h1>
 	<Welcome />
 </Layout>

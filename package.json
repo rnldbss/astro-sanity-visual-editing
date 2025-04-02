@@ -13,6 +13,7 @@
     "@astrojs/react": "^4.2.3",
     "@sanity/astro": "^3.2.6",
     "@sanity/client": "^6.28.4",
+    "@sanity/vision": "^3.82.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
     "astro": "^5.5.6",
