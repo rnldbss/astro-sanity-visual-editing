@@ -21,7 +21,7 @@ export const testimonialType = defineType({
     }),
     defineField({
       name: "body",
-      type: "blockContent",
+      type: "richText",
     }),
   ],
   preview: {

@@ -1,57 +1,101 @@
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
-import { testimonialType } from "./schemaTypes/documents/references/testimonial";
+import {
+  ComponentIcon,
+  BlockElementIcon,
+  ProjectsIcon,
+  ArchiveIcon,
+  DoubleChevronUpIcon,
+  DoubleChevronDownIcon,
+} from "@sanity/icons";
 
 export const structure = (S, context) =>
   S.list()
-    .title("Content")
+    .title("HC Woodworks")
     .items([
-      // Single document for Home page
-      // S.listItem()
-      //   .title("Home")
-      //   .child(S.document().schemaType("home").documentId("home")),
+      S.listItem()
+        .title("Pages")
+        .icon(BlockElementIcon)
+        .child(
+          S.list()
+            .title("Pages")
+            .items([
+              S.listItem()
+                .title("Home")
+                .icon(BlockElementIcon)
+                .child(
+                  S.document().schemaType("pageHome").documentId("pageHome")
+                ),
+              S.listItem()
+                .title("Projects")
+                .icon(BlockElementIcon)
+                .child(
+                  S.document()
+                    .schemaType("pageProjects")
+                    .documentId("pageProjects")
+                ),
+              S.listItem()
+                .title("Contact me")
+                .icon(BlockElementIcon)
+                .child(
+                  S.document()
+                    .schemaType("pageContact")
+                    .documentId("pageContact")
+                ),
+            ])
+        ),
 
-      // // Projects section with nested structure
-      // S.listItem()
-      //   .title("Projects")
-      //   .child(
-      //     S.list()
-      //       .title("Projects")
-      //       .items([
-      //         // Single document for projects page configuration
-      //         S.listItem()
-      //           .title("Projects Page")
-      //           .child(
-      //             S.document()
-      //               .schemaType("projectsPage")
-      //               .documentId("projectsPage")
-      //           ),
-
-      //         // Orderable list of individual projects
-      //         orderableDocumentListDeskItem({
-      //           title: "Projects List",
-      //           type: "project",
-      //           S,
-      //           context,
-      //         }),
-      //       ])
-      //   ),
-
-      // // Single document for Contact page
-      // S.listItem()
-      //   .title("Contact")
-      //   .child(S.document().schemaType("contact").documentId("contact")),
+      S.listItem()
+        .title("Projects")
+        .icon(ProjectsIcon)
+        .child(
+          S.list()
+            .title("Projects")
+            .items([
+              // Orderable list of individual projects
+              orderableDocumentListDeskItem({
+                title: "Projects List",
+                type: "pageProjectTemplate",
+                S,
+                context,
+              }),
+            ])
+        ),
 
       S.divider(),
+      S.listItem()
+        .title("Components")
+        .icon(ComponentIcon)
+        .child(
+          S.list()
+            .title("Files")
+            .items([
+              S.listItem()
+                .title("Header")
+                .icon(DoubleChevronUpIcon)
+                .child(S.document().schemaType("header").documentId("header")),
+              S.listItem()
+                .title("Footer")
+                .icon(DoubleChevronDownIcon)
+                .child(S.document().schemaType("footer").documentId("footer")),
+              S.listItem()
+                .title("Files")
+                .icon(ArchiveIcon)
+                .child(S.document().schemaType("files").documentId("files")),
+            ])
+        ),
 
       // Filter out already handled document types from the default list
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
-            // "project",
-            // "contact",
-            // "links",
-            // "projectsPage",
+            "pageHome",
+            "pageContact",
+            "pageProjects",
+            "pageProjectTemplate",
             "testimonial",
+            "files",
+            "header",
+            "footer",
           ].includes(listItem.getId())
       ),
     ]);

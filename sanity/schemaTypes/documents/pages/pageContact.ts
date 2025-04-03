@@ -3,22 +3,26 @@ import { defineField, defineType } from "sanity";
 export const pageContactType = defineType({
   name: "pageContact",
   type: "document",
-  title: "Page About",
+  title: "Contact me",
   fields: [
     defineField({
       name: "title",
       type: "string",
-      title: "Title",
-      description: "Page title",
+      initialValue: "Contact me",
+      readOnly: true,
+      hidden: true,
     }),
     defineField({
       name: "slug",
       type: "slug",
       title: "URL Path",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
+      initialValue: { current: "contact-me" },
+      readOnly: true,
+      hidden: true,
+    }),
+    defineField({
+      name: "intro",
+      type: "stringRichtextButton",
     }),
   ],
 });

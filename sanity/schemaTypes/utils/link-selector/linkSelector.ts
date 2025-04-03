@@ -87,7 +87,6 @@ export const linkSelectorType = defineType({
       type: "string",
       title: "Button Label",
       hidden: ({ parent }) => !parent?.enableButton || !parent?.linkType,
-      validation: (Rule) => Rule.required(),
     }),
   ],
 
