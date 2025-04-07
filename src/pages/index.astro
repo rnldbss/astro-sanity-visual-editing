@@ -1,16 +1,52 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-import { loadQuery } from '../../lib/sanity/load-query';
+import { fetchHomeData } from "../lib/sanityQueries";
+import Layout from "../layouts/Layout.astro";
+import Hero from "@components/sections/Hero.astro";
+import SplitSection from "@components//SplitSection.astro";
+import Testimonials from "@/components/sections/Testimonials.astro";
+import Services from "@components/sections/Services.astro";
+import Process from "@/components/sections/Process.astro";
+import Faq from "@/components/sections/Faq.astro";
 
-const {data: home} = await loadQuery<Array<{title: string}>>({
-  query: `*[_type == 'home'][0]{
-  aboutHeading}`,
-})
+import type { QueryParams } from "sanity";
 
-
+const { data: homeData } = await fetchHomeData(Astro.params as QueryParams);
 ---
 
 <Layout>
-	<Welcome />
+  <Hero
+    heading={homeData.hero.string}
+    body={homeData.hero.contentBlock}
+    media={homeData.hero.media}
+    testimonial={homeData.hero.testimonial}
+    buttons={homeData.hero.buttons}
+  />
+  <SplitSection
+    heading={homeData.about.string}
+    body={homeData.about.contentBlock}
+    button={homeData.about.button}
+    media={homeData.about.media}
+    as="h2"
+  />
+  <Services
+    heading={homeData.testimonialText.string}
+    serviceslist={homeData.services.stringRichtextButtonImageList}
+  />
+
+  <Testimonials
+    heading={homeData.testimonialText.string}
+    body={homeData.testimonialText.contentBlock}
+    testimonialsList={homeData.testimonials}
+  />
+  <Process
+    heading={homeData.process.string}
+    body={homeData.process.contentBlock}
+    processList={homeData.process.stringRichtextList}
+  />
+  <Faq
+    heading={homeData.faq.string}
+    body={homeData.faq.contentBlock}
+    button={homeData.faq.button}
+    faqList={homeData.faq.stringRichtextList}
+  />
 </Layout>

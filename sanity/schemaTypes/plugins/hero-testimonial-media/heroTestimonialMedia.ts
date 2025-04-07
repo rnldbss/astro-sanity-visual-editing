@@ -16,7 +16,7 @@ export const heroTestimonialMediaType = defineType({
       type: "richText",
     }),
     defineField({
-      name: "button",
+      name: "buttons",
       type: "array",
       of: [defineArrayMember({ type: "linkSelector" })],
       validation: (Rule) => Rule.max(2).error("You can only have 2 buttons"),

@@ -1,0 +1,51 @@
+---
+import MyPortableText from "@components/MyPortableText";
+import SanityImage from "@components/SanityImage.astro";
+import Video from "@components/Video.astro";
+import { SanityButton } from "@components/SanityButton";
+import type {
+  PortableTextBlock,
+  SanityLink,
+  Testimonial,
+  Media,
+} from "types/global";
+
+interface Props {
+  heading: string;
+  body: PortableTextBlock[];
+  media?: Media | null;
+  testimonial?: Testimonial | null;
+  buttons?: SanityLink[] | null;
+}
+
+const { heading, body, media, testimonial, buttons } = Astro.props;
+---
+
+<section>
+  <div>
+    <h1>
+      {heading}
+    </h1>
+    <MyPortableText content={body} />
+    <div>
+      {buttons?.map((button) => <SanityButton buttonData={button} />)}
+    </div>
+  </div>
+  {
+    testimonial && (
+      <div>
+        <MyPortableText content={testimonial.body} />
+        <p>
+          {testimonial.name}, {testimonial.info}
+        </p>
+        {testimonial.image && <SanityImage image={testimonial.image} />}
+      </div>
+    )
+  }
+  {
+    media?.mediaType === "image" && media?.image && (
+      <SanityImage image={media?.image} />
+    )
+  }
+  {media?.mediaType === "video" && media?.video && <Video src={media?.video} />}
+</section>

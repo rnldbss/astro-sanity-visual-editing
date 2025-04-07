@@ -1,0 +1,26 @@
+---
+import { Text } from "@components/ui/text";
+import MyPortableText from "@components/MyPortableText";
+import { SanityButton } from "@components/SanityButton";
+import MyAccordion from "@components/MyAccordion.tsx";
+import type { StringRichtextItem } from "types/queries/pageHome";
+import type { PortableTextBlock, SanityLink } from "types/global";
+
+interface Props {
+  heading: string;
+  body: PortableTextBlock[];
+  faqList: StringRichtextItem[];
+  button?: SanityLink | null;
+}
+
+const { heading, body, button, faqList } = Astro.props;
+---
+
+<section>
+  <Text as="h2">{heading}</Text>
+  <MyPortableText content={body} />
+  {button && <SanityButton buttonData={button} />}
+  <div>
+    <MyAccordion client:load accordionData={faqList} />
+  </div>
+</section>

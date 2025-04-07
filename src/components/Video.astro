@@ -1,0 +1,21 @@
+---
+const { src, className } = Astro.props;
+const webmUrl = src.videoWebm?.asset?.url;
+const mp4Url = src.videoMp4?.asset?.url;
+---
+
+<video
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+  width="100%"
+  height="auto"
+  aria-label="Project showcase video"
+  class={`rounded aspect-video w-full ${className}`}
+>
+  {webmUrl && <source src={webmUrl} type="video/webm" />}
+  {mp4Url && <source src={mp4Url} type="video/mp4" />}
+  Your browser does not support the video tag.
+</video>

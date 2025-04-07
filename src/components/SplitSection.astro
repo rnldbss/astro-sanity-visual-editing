@@ -1,0 +1,31 @@
+---
+import Video from "@components/Video.astro";
+import MyPortableText from "@components/MyPortableText";
+import { SanityButton } from "@components/SanityButton";
+import SanityImage from "@components/SanityImage.astro";
+import { Text } from "@components/ui/text";
+
+const { heading, body, button, media, as = "h2" } = Astro.props;
+---
+
+<section>
+  <div>
+    <Text as={as}>{heading}</Text>
+    <MyPortableText content={body} />
+    {button && <SanityButton buttonData={button} />}
+  </div>
+  <div>
+    {
+      media && (
+        <div>
+          {media.mediaType === "image" && media.image && (
+            <SanityImage image={media.image} />
+          )}
+          {media.mediaType === "video" && media.video && (
+            <Video src={media.video} />
+          )}
+        </div>
+      )
+    }
+  </div>
+</section>

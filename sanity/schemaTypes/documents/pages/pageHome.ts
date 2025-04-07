@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const pageHomeType = defineType({
   name: "pageHome",
@@ -31,6 +31,33 @@ export const pageHomeType = defineType({
     defineField({
       name: "services",
       type: "stringListStringRichtextButtonMedia",
+    }),
+    defineField({
+      name: "testimonialText",
+      type: "stringRichtext",
+    }),
+    defineField({
+      name: "testimonials",
+      type: "array",
+      of: [
+        defineArrayMember({ type: "reference", to: [{ type: "testimonial" }] }),
+      ],
+    }),
+    defineField({
+      name: "process",
+      type: "stringRichtextListStringRichtext",
+    }),
+    defineField({
+      name: "faq",
+      type: "stringRichtextButtonListStringRichtext",
+    }),
+    defineField({
+      name: "areas",
+      type: "stringRichtextButtonListString",
+    }),
+    defineField({
+      name: "contact",
+      type: "stringRichtextButtonMedia",
     }),
   ],
 });

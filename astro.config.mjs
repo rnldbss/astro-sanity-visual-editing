@@ -4,6 +4,7 @@ import { loadEnv } from "vite";
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 import netlify from "@astrojs/netlify";
+import tailwindcss from "@tailwindcss/vite";
 
 const env = loadEnv(process.env.NODE_ENV || "development", process.cwd(), "");
 
@@ -29,6 +30,15 @@ export default defineConfig({
     }),
     react(),
   ],
+
+  image: {
+    domains: ["cdn.sanity.io"],
+    remotePatterns: [{ protocol: "https" }],
+  },
+
+   vite: {
+    plugins: [tailwindcss()],
+  },
 
   output: "server",
   adapter: netlify(),

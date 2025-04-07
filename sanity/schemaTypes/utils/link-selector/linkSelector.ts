@@ -88,6 +88,22 @@ export const linkSelectorType = defineType({
       title: "Button Label",
       hidden: ({ parent }) => !parent?.enableButton || !parent?.linkType,
     }),
+
+    {
+  name: "variant",
+  title: "Button Style",
+  type: "string",
+  options: {
+    list: [
+      { title: "Primary", value: "default" },     
+      { title: "Secondary", value: "secondary" },
+      { title: "Outline", value: "outline" },
+      { title: "Ghost", value: "ghost" },
+      { title: "Link", value: "link" },
+    ],
+    layout: "dropdown"
+  }
+}
   ],
 
   preview: {

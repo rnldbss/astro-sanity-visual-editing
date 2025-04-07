@@ -37,6 +37,9 @@ import { customImageType } from "./schemaTypes/utils/customImage";
 import { videoType } from "./schemaTypes/utils/video";
 import { linkSelectorType } from "./schemaTypes/utils/link-selector/linkSelector";
 import { richTextType } from "./schemaTypes/utils/richText";
+import { stringRichtextButtonListStringType } from "./schemaTypes/plugins/string-richtext-button-list-string/stringRichtextButtonListString";
+import { stringRichtextButtonListStringRichtextType } from "./schemaTypes/plugins/string-richtext-button-list-string-richtext/stringRichtextButtonListStringRichtext";
+import { stringRichtextListStringRichtextType } from "./schemaTypes/plugins/string-richtext-ist-string-richtext/stringRichtextListStringRichtext";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -60,6 +63,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     heroTestimonialMediaType,
     stringListStringRichtextButtonMediaType,
     stringRichtextButtonImageType,
+    stringRichtextButtonListStringType,
+    stringRichtextButtonListStringRichtextType,
+    stringRichtextListStringRichtextType,
 
     // Utility Types
     customImageType,

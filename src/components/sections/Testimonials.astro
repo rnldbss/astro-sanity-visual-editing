@@ -1,0 +1,23 @@
+---
+import { Text } from "@components/ui/text";
+import MyPortableText from "@components/MyPortableText";
+import TestimonialCard from "@components/TestimonialCard.astro";
+import type { Testimonial } from "types/global";
+import type { PortableTextBlock } from "types/global";
+
+interface Props {
+  heading: string;
+  body: PortableTextBlock[];
+  testimonialsList: Testimonial[];
+}
+
+const { heading, body, testimonialsList } = Astro.props;
+---
+
+<section>
+  <Text as="h2">{heading}</Text>
+  <MyPortableText content={body} />
+  <div>
+    {testimonialsList.map((item) => <TestimonialCard testimonial={item} />)}
+  </div>
+</section>

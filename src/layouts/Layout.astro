@@ -1,29 +1,48 @@
 ---
-import {VisualEditing} from '@sanity/astro/visual-editing'
+import "../styles/global.css";
 
-const visualEditingEnabled = import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED == 'true'
+import { VisualEditing } from "@sanity/astro/visual-editing";
+import { AstroFont } from "astro-font";
+
+const visualEditingEnabled =
+  import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED == "true";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-		<VisualEditing enabled={visualEditingEnabled} zIndex={1000} />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+    <AstroFont
+      config={[
+        {
+          src: [],
+          name: "EBGaramond",
+          googleFontsURL:
+            "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800",
+          preload: true,
+          display: "swap",
+          fallback: "serif",
+          cssVariable: "font-eb-garamond",
+        },
+        {
+          src: [],
+          name: "DMSans",
+          googleFontsURL:
+            "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap",
+          preload: false,
+          display: "swap",
+          fallback: "serif",
+          cssVariable: "font-dm-sans",
+        },
+      ]}
+    />
+  </head>
+  <body>
+    <slot />
+    <VisualEditing enabled={visualEditingEnabled} zIndex={1000} />
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

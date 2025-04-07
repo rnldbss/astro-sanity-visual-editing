@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-eb-garamond: var(--font-eb-garamond), serif;
+  --font-dm-sans: var(--font-dm-sans), "sans serif";
+
+  --color-level-0: #fefcfb;
+  --color-level-1: #fbf7f4;
+  --color-on-level-0: #032b43;
+  --color-primary: #005066;
+  --color-on-primary: #fefcfb;
+  --color-accent-on-light: #337a6e;
+  --color-accent-on-dark: #fbf7f4;
+
+   /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --text-xs: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --text-sm: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --text-base: clamp(1.125rem, 1.0163rem + 0.5435vw, 1.4375rem);
+  --text-md: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --text-lg: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --text-xl: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+  --text-2xl: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+  --text-3xl: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+}
+@layer base {
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-eb-garamond text-on-level-0;
+  }
+}

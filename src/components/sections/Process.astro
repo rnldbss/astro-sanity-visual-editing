@@ -1,0 +1,30 @@
+---
+import { Text } from "@components/ui/text";
+import MyPortableText from "@components/MyPortableText";
+import type { StringRichtextItem } from "types/queries/pageHome";
+import type { PortableTextBlock } from "types/global";
+
+interface Props {
+  heading: string;
+  body: PortableTextBlock[];
+  processList: StringRichtextItem[];
+}
+
+const { heading, body, processList } = Astro.props;
+---
+
+<section>
+  <Text as="h2">{heading}</Text>
+  <MyPortableText content={body} />
+  <div>
+    {
+      processList.map((item, index) => (
+        <div>
+          <span>{index + 1}</span>
+          <Text as="h3">{item.string}</Text>
+          <MyPortableText content={item.contentBlock} />
+        </div>
+      ))
+    }
+  </div>
+</section>

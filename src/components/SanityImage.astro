@@ -1,0 +1,59 @@
+---
+import Picture from "astro/components/Picture.astro";
+import imageUrlBuilder from "@sanity/image-url";
+import { sanityClient } from "sanity:client";
+import type { SanityImage } from "types/global";
+
+const builder = imageUrlBuilder(sanityClient);
+
+interface Props {
+  image?: SanityImage;
+  alt?: string;
+  className?: string;
+  quality?: number;
+  sizes?: string;
+  loading?: "lazy" | "eager";
+  format?: "webp" | "jpg" | "png" | "avif";
+  width?: number;
+  height?: number;
+}
+
+const {
+  image,
+  alt = "No alt text provided",
+  className = "",
+  quality = 80,
+  sizes = "(max-width: 768px) 100vw, 50vw",
+  loading = "lazy",
+  format,
+  width,
+  height,
+} = Astro.props;
+
+// Generate remote URL only if image is defined
+let src: string | undefined;
+
+if (image) {
+  let imgBuilder = builder.image(image).auto("format");
+  if (width) imgBuilder = imgBuilder.width(width);
+  if (height) imgBuilder = imgBuilder.height(height);
+  src = imgBuilder.url();
+}
+---
+
+{
+  src && (
+    <Picture
+      src={src}
+      alt={alt}
+      inferSize
+      class={className}
+      quality={quality}
+      sizes={sizes}
+      format={format}
+      loading={loading}
+      width={width}
+      height={height}
+    />
+  )
+}

@@ -1,0 +1,15 @@
+---
+import MyPortableText from "@components/MyPortableText";
+import SanityImage from "@components/SanityImage.astro";
+import { Text } from "@components/ui/text";
+
+const { testimonial } = Astro.props;
+---
+
+<div>
+  <SanityImage image={testimonial.image} />
+  <div>
+    <Text as="p">{testimonial.name}, {testimonial.info}</Text>
+    <MyPortableText content={testimonial.body} />
+  </div>
+</div>

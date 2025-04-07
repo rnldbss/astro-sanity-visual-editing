@@ -1,0 +1,28 @@
+---
+import ImageCard from "@components/ImageCard.astro";
+import { Text } from "@components/ui/text";
+import type { ServicesItem } from "types/queries/pageHome"
+
+interface Props {
+  heading: string;
+  serviceslist: ServicesItem[];
+}
+
+const { heading, serviceslist } = Astro.props;
+---
+
+<section>
+  <Text as="h2">{heading}</Text>
+  <div>
+    {
+      serviceslist.map((item) => (
+        <ImageCard
+          key={item._key}
+          heading={item.string}
+          body={item.contentBlock} // This is an array now, make sure ImageCard can handle it
+          image={item.image}
+        />
+      ))
+    }
+  </div>
+</section>
