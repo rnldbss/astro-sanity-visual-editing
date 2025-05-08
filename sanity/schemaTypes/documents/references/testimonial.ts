@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import { defineType, defineField } from '@sanity/types';
 import { StarFilledIcon } from "@sanity/icons";
 
 export const testimonialType = defineType({

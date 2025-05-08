@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineType, defineField } from '@sanity/types';
 
 export const headerType = defineType({
   name: "header",

@@ -1,4 +1,4 @@
-import { defineField, defineType, defineArrayMember } from "sanity";
+import { defineType, defineArrayMember, defineField } from '@sanity/types';
 
 export const blockTextBodyCTAs = defineType({
   name: "blockTextBodyCTAs",

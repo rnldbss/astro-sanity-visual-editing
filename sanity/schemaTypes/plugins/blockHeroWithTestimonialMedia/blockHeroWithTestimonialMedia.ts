@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineType, defineField } from '@sanity/types';
 import { DocumentVideoIcon } from "@sanity/icons";
 
 export const blockHeroWithTestimonialMedia = defineType({
@@ -18,7 +18,7 @@ export const blockHeroWithTestimonialMedia = defineType({
     defineField({
       name: "buttons",
       type: "array",
-      of: [defineArrayMember({ type: "linkSelector" })],
+      of: [{ type: "linkSelector" }],
       validation: (Rule) => Rule.max(2).error("You can only have 2 buttons"),
     }),
     defineField({

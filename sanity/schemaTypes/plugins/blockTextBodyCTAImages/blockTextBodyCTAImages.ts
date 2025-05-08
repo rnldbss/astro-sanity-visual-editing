@@ -1,4 +1,4 @@
-import { defineField, defineType, defineArrayMember } from "sanity";
+import { defineType, defineArrayMember, defineField } from '@sanity/types';
 import { ImagesIcon } from "@sanity/icons";
 
 export const blockTextBodyCTAImages = defineType({

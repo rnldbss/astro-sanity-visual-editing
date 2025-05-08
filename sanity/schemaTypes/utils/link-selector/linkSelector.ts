@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineType, defineField } from '@sanity/types';
 import { LinkIcon } from "@sanity/icons";
 import InternalLinkSelect from "../../../components/InternalLinkSelect";
 export const linkSelectorType = defineType({
