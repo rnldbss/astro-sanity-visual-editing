@@ -1,4 +1,5 @@
-import { defineField, defineType } from "sanity";
+import { defineType } from "sanity";
+import { defineField } from "@sanity/types";
 
 export const pageProjectsType = defineType({
   name: "pageProjects",

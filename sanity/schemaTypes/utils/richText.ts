@@ -1,4 +1,4 @@
-import { defineArrayMember, defineType } from "sanity";
+import { defineType, defineArrayMember } from '@sanity/types';
 
 export const richTextType = defineType({
   title: "Content Block",

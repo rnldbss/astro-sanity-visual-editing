@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineType, defineField } from '@sanity/types';
 
 import {ImageIcon} from '@sanity/icons'
 
@@ -28,7 +28,7 @@ export const customImageType = defineType({
       title: 'alt',
       media: 'customImage'
     },
-    prepare({title}) {
+    prepare({ title }: { title: string }) {
       return {
         title,
       }

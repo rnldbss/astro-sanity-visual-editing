@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineType, defineField } from '@sanity/types';
 import { DocumentIcon } from "@sanity/icons";
 
 export const filesType = defineType({
