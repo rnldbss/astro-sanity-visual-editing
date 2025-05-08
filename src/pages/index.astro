@@ -14,7 +14,7 @@ const { data: homeData } = await fetchHomeData(Astro.params as QueryParams);
 ---
 
 <Layout>
-  <Hero
+  <!-- <Hero
     heading={homeData.hero.string}
     body={homeData.hero.contentBlock}
     media={homeData.hero.media}
@@ -48,5 +48,5 @@ const { data: homeData } = await fetchHomeData(Astro.params as QueryParams);
     body={homeData.faq.contentBlock}
     button={homeData.faq.button}
     faqList={homeData.faq.stringRichtextList}
-  />
+  /> -->
 </Layout>
