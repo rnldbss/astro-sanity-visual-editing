@@ -23,23 +23,23 @@ import { footerType } from "./schemaTypes/documents/components/footer";
 
 // Plugin Types - Reusable field configurations
 import { mediaType } from "./schemaTypes/plugins/media/media";
-import { stringRichtextButtonType } from "./schemaTypes/plugins/string-rich-text-button/stringRichtextButton";
-import { stringRichtextButtonsType } from "./schemaTypes/plugins/string-rich-text-buttons/stringRichtextButtons";
-import { stringRichtextType } from "./schemaTypes/plugins/string-richtext/stringRichtext";
-import { stringRichtextButtonMediaType } from "./schemaTypes/plugins/string-richtext-button-media/stringRichtextButtonMedia";
-import { stringRichtextButtonImagesType } from "./schemaTypes/plugins/string-richtext-button-images/stringRichtextButtonImages";
-import { heroTestimonialMediaType } from "./schemaTypes/plugins/hero-testimonial-media/heroTestimonialMedia";
-import { stringListStringRichtextButtonMediaType } from "./schemaTypes/plugins/string-list-string-richtext-button-image/stringListStringRichtextButtonMedia";
-import { stringRichtextButtonImageType } from "./schemaTypes/plugins/string-richtext-button-image/stringRichtextButtonImage";
+import { blockTextBodyCTA } from "./schemaTypes/plugins/blockTextBodyCTA/blockTextBodyCTA";
+import { blockTextBodyCTAs } from "./schemaTypes/plugins/blockTextBodyCTAs/blockTextBodyCTAs";
+import { blockTextBody } from "./schemaTypes/plugins/blockTextBody/blockTextBody";
+import { blockTextBodyCTAMedia } from "./schemaTypes/plugins/blockTextBodyCTAMedia/blockTextBodyCTAMedia";
+import { blockTextBodyCTAImages } from "./schemaTypes/plugins/blockTextBodyCTAImages/blockTextBodyCTAImages";
+import { blockHeroWithTestimonialMedia } from "./schemaTypes/plugins/blockHeroWithTestimonialMedia/blockHeroWithTestimonialMedia";
+import { blockTextWithTextBodyCTAImageList } from "./schemaTypes/plugins/blockTextWithTextBodyCTAImageList/blockTextWithTextBodyCTAImageList";
+import { blockTextBodyCTAImage } from "./schemaTypes/plugins/blockTextBodyCTAImage/blockTextBodyCTAImage";
 
 // Utility Types - Base schemas and shared configurations
 import { customImageType } from "./schemaTypes/utils/customImage";
 import { videoType } from "./schemaTypes/utils/video";
 import { linkSelectorType } from "./schemaTypes/utils/link-selector/linkSelector";
 import { richTextType } from "./schemaTypes/utils/richText";
-import { stringRichtextButtonListStringType } from "./schemaTypes/plugins/string-richtext-button-list-string/stringRichtextButtonListString";
-import { stringRichtextButtonListStringRichtextType } from "./schemaTypes/plugins/string-richtext-button-list-string-richtext/stringRichtextButtonListStringRichtext";
-import { stringRichtextListStringRichtextType } from "./schemaTypes/plugins/string-richtext-ist-string-richtext/stringRichtextListStringRichtext";
+import { blockTextBodyCTAWithStringList } from "./schemaTypes/plugins/blockTextBodyCTAWithStringList/blockTextBodyCTAWithStringList";
+import { blockTextBodyCTAWithTextBodyList } from "./schemaTypes/plugins/blockTextBodyCTAWithTextBodyList/blockTextBodyCTAWithTextBodyList";
+import { stringRichtextListStringRichtextType } from "./schemaTypes/plugins/blockTextBodyWithTextBodyList/blockTextBodyWithTextBodyList";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -54,17 +54,17 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     filesType,
 
     // Plugin Types
-    stringRichtextButtonType,
-    stringRichtextButtonsType,
-    stringRichtextType,
-    stringRichtextButtonMediaType,
-    stringRichtextButtonImagesType,
+    blockTextBodyCTA,
+    blockTextBodyCTAs,
+    blockTextBody,
+    blockTextBodyCTAMedia,
+    blockTextBodyCTAImages,
     mediaType,
-    heroTestimonialMediaType,
-    stringListStringRichtextButtonMediaType,
-    stringRichtextButtonImageType,
-    stringRichtextButtonListStringType,
-    stringRichtextButtonListStringRichtextType,
+    blockHeroWithTestimonialMedia,
+    blockTextWithTextBodyCTAImageList,
+    blockTextBodyCTAImage,
+    blockTextBodyCTAWithStringList,
+    blockTextBodyCTAWithTextBodyList,
     stringRichtextListStringRichtextType,
 
     // Utility Types
